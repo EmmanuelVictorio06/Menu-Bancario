@@ -43,8 +43,14 @@ public class SistemaBancario {
     }
 
     private static void cadastrar(Scanner scanner) {
+        System.out.println(); // Adiciona uma linha em branco
+
+        scanner.nextLine(); // Consumir quebra de linha residual
+
         String nome = lerString(scanner, "Digite o nome do cliente: ");
         String cpf = lerString(scanner, "Digite o CPF do cliente: ");
+
+        System.out.println("CPF digitado: " + cpf); // Depuração: Verificar o CPF digitado
 
         if (nomesCadastrados.contains(nome)) {
             System.out.println("Nome já cadastrado. Por favor, insira um nome diferente.");
@@ -61,8 +67,10 @@ public class SistemaBancario {
         nomesCadastrados.add(nome);
         cpfsCadastrados.add(cpf);
 
+        System.out.println("CPF armazenado: " + cpf); // Depuração: Verificar o CPF armazenado
         System.out.println("Cadastro realizado com sucesso!");
     }
+
 
     private static void sacar(Scanner scanner) {
         if (conta == null) {
